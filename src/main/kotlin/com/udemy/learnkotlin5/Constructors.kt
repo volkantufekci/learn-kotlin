@@ -25,7 +25,7 @@ fun main() {
     val secConsWithOnlyFirstName = SecondaryConstructorWithPrimary("Only First Name")
     println("${secConsWithOnlyFirstName.firstName} ${secConsWithOnlyFirstName.lastName}")
 
-    // lateinit - if we do not initialize lateinit parameter we will get run time error
+    // lateinit - if we do not initialize lateinit property we will get run time error
     val secConsWithLateInit = SecondaryConstructorWithLateInıt("Only First Name")
     secConsWithLateInit.lastName = "Surname"
     println("${secConsWithLateInit.firstName} ${secConsWithLateInit.lastName}")
@@ -98,7 +98,6 @@ class SecondaryConstructorOnly { // do not use () here
 /*class SecondaryConstructorWithPrimary(val firstName: String) {
     var lastName: String = "LastName"
     constructor(firstName: String, lastName: String) { // This line will compile error - Primary constructor call expected
-
     }
 }*/
 
