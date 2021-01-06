@@ -26,9 +26,10 @@ fun main() {
     println("${secConsWithOnlyFirstName.firstName} ${secConsWithOnlyFirstName.lastName}")
 
     // lateinit - if we do not initialize lateinit property we will get run time error
-    val secConsWithLateInit = SecondaryConstructorWithLateInıt("Only First Name")
+    val secConsWithLateInit = SecondaryConstructorWithLateInıt("Only First Name", 12)
     secConsWithLateInit.lastName = "Surname"
-    println("${secConsWithLateInit.firstName} ${secConsWithLateInit.lastName}")
+    println("firstName: ${secConsWithLateInit.firstName} secondName: ${secConsWithLateInit.lastName} age: ${secConsWithLateInit.age}")
+
 }
 
 
@@ -111,8 +112,10 @@ class SecondaryConstructorWithPrimary(val firstName: String) {
 // lateinit
 class SecondaryConstructorWithLateInıt(val firstName: String) {
     lateinit var lastName: String  // it will defined later - other than construction time!
-    constructor(firstName: String, lastName: String) : this(firstName) { // Call the primary constructor
+    var age: Int = 0
 
+    constructor(firstName: String, age: Int) : this(firstName) { // Call the primary constructor
+        this.age = age
     }
 }
 

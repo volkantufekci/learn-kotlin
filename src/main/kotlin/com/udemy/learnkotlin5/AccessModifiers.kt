@@ -69,7 +69,7 @@ class C private constructor(val a: Int) {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     println("${PublicClass()}")
     println("${PrivateClass()}")
     println("${InternalClass()}")
