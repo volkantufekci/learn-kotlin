@@ -33,6 +33,7 @@ fun main() {
 // we can override if we need to write our own version
 // primary constructor has ta have at least 1 parameter and this parameter has to be marked with val or var
 // they store state information and not doing anything else
+// we can exclude properties included by the automatically generated functions by declaring them inside the class body
 data class Car(val color: String, val model: String, val year: Int)
 
 
