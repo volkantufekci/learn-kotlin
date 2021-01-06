@@ -4,7 +4,6 @@ package com.udemy.learnkotlin5
 val MY_CONSTANT = 100
 
 // data class - stores state
-
 fun main() {
     println(MY_CONSTANT)
     val car = Car("blue", "toyota", 2015)

@@ -11,7 +11,6 @@ private class PrivateClass { // We can use it in the same file when we use priva
 
 private val privateString = "Top Level Item - Private String"
 
-
 class PublicClass {  // all classes public and final by default
     override fun toString(): String {
         return "I am public class instance"

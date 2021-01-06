@@ -34,7 +34,6 @@ fun main() {
 
 
 class DefaultConstructor { // Default constructor will be created
-
 }
 
 
