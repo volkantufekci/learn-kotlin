@@ -19,5 +19,5 @@ fun main() {
     println("$internalString is called from a different file - AccessModifiersTest.kt")
 
     println("$bar") // We can access bar, since it is public
-    // bar = 10 // Since setter is private we can not set bar here!
+    //bar = 10 // Since setter is private we can not set bar here!
 }

@@ -7,6 +7,8 @@ fun main() {
 
     val ex = PropertiesAndBackingFields()
     println(ex.setterVisibility)
+    // will give compile error
+   // ex.setterVisibility = "deneme"
 
     // We called public get provided by default
     println("********* Default getter **********")
@@ -22,8 +24,8 @@ fun main() {
     // We can write custom setter
     println("********* Custom getter and setter **********")
     val animal2 = Animal("Cat", "meow")
-    println(animal2.talks)
-    animal2.talks = "Hello Cat!"
+    println(animal2.talks) // call get
+    animal2.talks = "Hello Cat!" // call set
     println(animal2.talks)
 
     // lateinit property
@@ -50,7 +52,7 @@ class Person(val name:String, var age: Int) {
 // with valid less visibility
 class PropertiesAndBackingFields {
       var setterVisibility: String = "asd"
-         private set // the setter is private and has the default implementation
+          private set // the setter is private and has the default implementation
 }
 
 // this will give compile error - Setter visibility must be the same or less permissive than property visibility
@@ -66,15 +68,30 @@ class PropertiesAndBackingFields {
 // Each time we reach or set talks property its get and set function is called which enables us to use computed property
 class Animal(val kind: String, talks: String) {
     var talks = talks
-     get() {
-         println("Custom getter is called from Animal instance")
-         return field   // field - backing field is generated only we need to write custom getter/setter and use the property value
-     }
-    set(value) {
-        println("Custom setter is called")
-        field = value // we can set property's value using field identifier
-    }
+        get() {
+            println("Custom getter is called from Animal instance")
+            return field  // field - backing field is generated only we need to write custom getter/setter and use the property value
+        }
+        set(value) {
+            println("Custom setter is called")
+            field = value // we can set property's value using field identifier.
+        }
 }
+
+// If we try to assign property like this we will get run time error
+/*
+class Animal2(val kind: String, talks: String) {
+    var talks = talks
+        get() {
+            println("Custom getter is called from Animal instance")
+            return talks  // field - backing field is generated only we need to write custom getter/setter and use the property value
+        }
+        set(value) {
+            println("Custom setter is called")
+            field = talks // we can set property's value using field identifier.
+        }
+}
+*/
 
 // val properties do not allow a setter
 // This will give compile error saying - A 'val'-property cannot have a setter

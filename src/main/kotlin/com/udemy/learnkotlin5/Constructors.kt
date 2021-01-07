@@ -21,7 +21,7 @@ fun main() {
     val secCons = SecondaryConstructorWithPrimary("SecCons", "Last Name")
     println("${secCons.firstName} ${secCons.lastName}")
 
-    // Default last name = " " will be used
+    // Default last name = " " will be used - primary constructor call
     val secConsWithOnlyFirstName = SecondaryConstructorWithPrimary("Only First Name")
     println("${secConsWithOnlyFirstName.firstName} ${secConsWithOnlyFirstName.lastName}")
 
@@ -29,7 +29,6 @@ fun main() {
     val secConsWithLateInit = SecondaryConstructorWithLateInıt("Only First Name", 12)
     secConsWithLateInit.lastName = "Surname"
     println("firstName: ${secConsWithLateInit.firstName} secondName: ${secConsWithLateInit.lastName} age: ${secConsWithLateInit.age}")
-
 }
 
 
@@ -93,6 +92,7 @@ class SecondaryConstructorOnly { // do not use () here
     }
 }
 
+
 // We need to call - if we have one- the primary constructor from the secondary constructor
 
 /*class SecondaryConstructorWithPrimary(val firstName: String) {
@@ -117,6 +117,5 @@ class SecondaryConstructorWithLateInıt(val firstName: String) {
         this.age = age
     }
 }
-
 
 // NOTE: Prefer primary constructor since its more concise
