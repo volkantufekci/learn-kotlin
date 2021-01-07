@@ -14,7 +14,7 @@ fun main() {
     println("${constructorWithDefaultValueEmployee.firstName}  ${constructorWithDefaultValueEmployee.secondName}")
 
     // Private constructor
-    // println("${ProtectedConstructorEmployee("Emp3").firstName}")
+    // println("${PrivateConstructorEmployee("Emp3").firstName}")
 
     // Secondary Constructor
     println("${SecondaryConstructorOnly("SecCons").firstName}")
@@ -66,7 +66,7 @@ class ConstructorWithDefaultValue (val firstName: String, var secondName: String
 }
 
 // We need constructor keyword if we need to use access modifiers with constructor, ex:
-class ProtectedConstructorEmployee private constructor(val firstName: String) { // Declare the property and remove constructor keyword
+class PrivateConstructorEmployee private constructor(val firstName: String) { // Declare the property and remove constructor keyword
 
 }
 
