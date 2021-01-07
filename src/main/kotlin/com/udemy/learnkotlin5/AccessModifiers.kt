@@ -61,7 +61,6 @@ class Client(o: Outer) {
 
 
 // Constructors
-
 class C private constructor(val a: Int) {
     companion object {
         val a = "I am a companion object"

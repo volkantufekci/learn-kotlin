@@ -2,7 +2,7 @@
 import com.udemy.learnkotlin5.PublicClass
 import com.udemy.learnkotlin5.publicString
 // This import will give it is internal - make it public error!
-//import com.udemy.com.udemy.com.udemy.learnkotlin5.com.udemy.learnkotlin5.internalString
+//import com.udemy.learnkotlin5.internalString
 
 
 fun main() {
