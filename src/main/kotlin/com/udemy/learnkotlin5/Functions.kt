@@ -21,11 +21,15 @@ fun main(args: Array<String>): Unit {
 
     printColors(car1, car2, car3)
 
-    printColorsWithMoreArgs(car1, car2, car3, str = "String")
-    // Will not compile
-    // printColorsWithMoreArgs(car1, car2, car3, "String")
+    val arrayList = arrayOf(1, 2, 3, 4)
+    val result = getAverage(arrayList)
+    println(result)
 
-    printColorsWithVarargsAtTheEnd("String", car1, car2, car3)
+    val result1 = getAverage2(1, 2, 3)
+    val result2 = getAverage2(1, 2, 3, 4, 5)
+    println(result1)
+    println(result2)
+
 
     // arrayOf() also uses vararg
     val arr = arrayOf(1,2,3)
@@ -42,6 +46,12 @@ fun main(args: Array<String>): Unit {
     for (c in lotsOfCars) {
         println(c)
     }
+
+    printColorsWithMoreArgs(car1, car2, car3, str = "String")
+    // Will not compile
+    // printColorsWithMoreArgs(car1, car2, car3, "String")
+
+    printColorsWithVarargsAtTheEnd("String", car1, car2, car3)
 }
 
 
@@ -79,6 +89,24 @@ fun defaultParamater(operand1: Int, operand2: Int, label: String = "The answer i
 // We have to include type of the parameters of functions
 // This will not compile
 // fun defaultParamater(operand1: Int, operand2: Int, label = "The answer is: ") = "$label ${operand1*operand2}"
+
+
+fun getAverage(numbersList: Array<Int>): Float {
+
+    var sum = 0.0f
+    for (item in numbersList) {
+        sum += item
+    }
+    return (sum / numbersList.size)
+}
+
+fun getAverage2(vararg input: Int): Float {
+    var sum = 0.0f
+    for (item in input) {
+        sum += item
+    }
+    return (sum / input.size)
+}
 
 data class FunctionsCar(val color: String, val model: String, val year: Int)
 

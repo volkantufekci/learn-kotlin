@@ -3,7 +3,6 @@ package com.udemy.learnkotlin5
 // We can declare top-level constants
 val MY_CONSTANT = 100
 
-// data class - stores state
 fun main() {
     println(MY_CONSTANT)
     val car = Car("blue", "toyota", 2015)
@@ -28,13 +27,18 @@ fun main() {
     println(emp1 == emp2) // this is false since equals() is not overridden.
 }
 
-
-// data classes come with a custom implementation of the equals and hashcode functions and a copy function
+// data class - stores state
+// data classes come with a custom implementation of the equals, toString, hashcode functions and a copy function
 // we can override if we need to write our own version
-// primary constructor has ta have at least 1 parameter and this parameter has to be marked with val or var
 // they store state information and not doing anything else
 // we can exclude properties included by the automatically generated functions by declaring them inside the class body
 data class Car(val color: String, val model: String, val year: Int)
+
+// primary constructor has ta have at least 1 parameter and this parameter has to be marked with val or var
+// Will give compile error
+//data class DC()
+
+
 
 
 

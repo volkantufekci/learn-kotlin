@@ -11,6 +11,7 @@ fun higherfunc( str : String, mycall :(String)-> Unit) {
 
 // the keyword println in the lambda expression is copied in the main function in the from of System.out.println
 // and no further call will be required
+// We can reduce the memory overhead by requesting the compiler not to allocate memory.
 /*inline fun higherfunc( str : String, mycall :(String)-> Unit) {
     //inovokes the print() by passing the string str
     mycall(str)
