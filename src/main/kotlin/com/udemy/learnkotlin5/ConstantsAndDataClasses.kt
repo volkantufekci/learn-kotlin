@@ -36,7 +36,7 @@ data class Car(val color: String, val model: String, val year: Int)
 
 // primary constructor has ta have at least 1 parameter and this parameter has to be marked with val or var
 // Will give compile error
-//data class DC()
+// data class DC()
 
 
 

@@ -12,6 +12,6 @@ fun main() {
 // We will see this function for any string that we create
 // IDE will show this function as hint to us when we search functions of String class
 fun String.upperFirstAndLast() : String {  // String is the receiver type
-    val upperFirst = this.substring(0,1 ).toUpperCase() + this.substring(1)
+    val upperFirst = substring(0,1 ).toUpperCase() + substring(1)
     return upperFirst.substring(0, upperFirst.length - 1) + upperFirst.substring(upperFirst.length -1, upperFirst.length).toUpperCase()
 }
