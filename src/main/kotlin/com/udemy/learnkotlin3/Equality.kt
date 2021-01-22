@@ -1,7 +1,7 @@
 package com.udemy.learnkotlin3
 
-fun main(args: Array<String>)  {
 
+fun main(args: Array<String>)  {
     val studentOne = Student("Mary", 1)
     val studentTwo = Student("John", 2)
     val studentThree = Student("John", 2)
