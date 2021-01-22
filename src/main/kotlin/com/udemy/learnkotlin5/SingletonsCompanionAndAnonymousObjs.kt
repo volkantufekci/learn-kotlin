@@ -1,5 +1,9 @@
 package com.udemy.learnkotlin5
 
+import com.udemy.examples.Dealer
+import java.time.Year
+
+
 // object keyword usages:
 
 // Singletons - only 1 instance of a class
@@ -12,6 +16,36 @@ package com.udemy.learnkotlin5
 // Lessons learned - See how we can reach singleton class functions
 
 
+object CompanyCommunications {
+    private val currentYear = Year.now().value
+
+    fun getTagLine() = "Our company is awesome"
+
+    fun getCopyrightLine() = "Copyright \u00A9 $currentYear Our Company. All rights reserved."
+
+}
+
+fun main() {
+    println(CompanyCommunications.getTagLine())
+    println(CompanyCommunications.getCopyrightLine())
+
+    println(CompanionObjectClass.accessPrivateVar())
+    println(CompanionObjectClass.createdObjects)
+    val obj1 = CompanionObjectClass()
+    println("this time: "+CompanionObjectClass.createdObjects)
+
+    var obj2 = CompanionObjectClass()
+    println("this time: "+CompanionObjectClass.createdObjects)
+
+    obj2 = CompanionObjectClass()
+    println("this time: "+CompanionObjectClass.createdObjects)
+    println(CompanionObjectClass.accessPrivateVar())
+
+
+
+}
+
+
 // companion objects - static members of the class
 // 1.create a class named CompanionObjectClass
 // 2. add a private property named year with type Int
@@ -21,6 +55,18 @@ package com.udemy.learnkotlin5
 // 6. give name SpecialCompanion to the companion object, try to reach accessPrivateVar() fun using SpecialCompanion
 // 7. Delete name and try to reach accessPrivateVar() fun without using Companion keyword
 // Lessons learned - anything in the companion objects mean that we can reach them without creating an instance of a class
+
+class CompanionObjectClass{
+    init {
+        createdObjects++
+    }
+
+    companion object {
+        internal var createdObjects = 0
+        private val year: Int = -1
+        fun accessPrivateVar() = "$year"
+    }
+}
 
 
 // companion objects as factories

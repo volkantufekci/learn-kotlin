@@ -3,8 +3,12 @@ package com.udemy.examples
 val availableCars = arrayOf("Toyota", "Honda", "Nissan", "BMW")
 
 
-class Dealer {
+
+
+class Dealer(var dealersMoney:Double = 500.0) {
     private val givenCars = arrayListOf<Car>()
+
+    constructor(fon: Fon): this(fon.kazan())
 
     var boughtCars = arrayListOf<Car>() // Honda Jeep Toyota
 
@@ -52,7 +56,8 @@ class Dealer {
             return true
         }
 
-        return false
+        throw Exception("No car is found")
+
     }
 }
 

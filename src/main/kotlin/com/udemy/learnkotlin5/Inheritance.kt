@@ -51,9 +51,9 @@ fun main() {
 open class Something(val x: Int) {
     private var someProperty: String = ""
 
-    constructor(someProperty: String) {
-        this.someProperty = someProperty
-    }
+    //constructor(someProperty: String) {
+    //    this.someProperty = someProperty
+    //}
 }
 
 class SomethingElse: Something {

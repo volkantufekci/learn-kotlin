@@ -48,6 +48,7 @@ fun main(){
 
 // Add a return car method that takes a car and puts it into array back again and clears the tracking, now we can call give again
     dealer.takeBack(oneOfDealersCars!!)
+
 /*
 // Now check the given car and if it is some other car, it should throw error
     val someCar = dealer.give()
@@ -77,6 +78,36 @@ fun main(){
 */
 
 }
+
+
+// Now check the given car and if it is some other car, it should throw error
+    //val someCar = dealer.give()
+    //dealer.takeBack(Car("Bugatti")) //Should throw error
+
+
+// Be able to call
+  //  val carObject = Araba()
+
+//Now make the switch from String array to Car array
+  /*  val car = Car()
+    dealer.buy(car, "Volkan")
+    dealer.sell(car, "Ufuk")
+    dealer.sellAll("Toyota", "Ilker")
+*/
+
+// Now add car prices and track money
+    val dealer1 = Dealer(1000.0) // Starts with 1000 money
+    val dealer2 = Dealer() // Starts with default amount of money
+
+    // Constructor overloading, lets say we have a class: Fonun ingilizcesi neyse
+
+    val dealer3 = Dealer(Fon()) // diyelim ki dealer belli bir fon ile başlıyor ama parası belli değil
+
+
+class Fon(){
+        fun kazan() = Math.random() * 1000
+    }
+
 
 fun Car.openTheWindow() {
     println("Open the window")
