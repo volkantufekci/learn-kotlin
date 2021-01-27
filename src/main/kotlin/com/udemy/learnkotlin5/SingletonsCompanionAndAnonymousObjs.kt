@@ -103,5 +103,26 @@ class CompanionObjectClass{
 // Lessons learned: if you will add a fun in the enum class you need to put ; after the last enum value
 
 
+//Imports in Kotlin
+// 1. Create a new package named anotherpackage
+// 2. Create a new kt file under this package named AnotherFile
+// 2. Create a top level function in this file named printParam(str: String) = ...
+// 3. Call printParam("${your name}") from the AnotherFile
+// 4. Create a new module AnotherModule
+// 5. Create a package under this module
+// 6. Create a new file
+// 7. Try to call printParam("${your name}") from this file
+// 8. Rigth click to the new module and select Open Module Settings
+// 9. Select AnotherModule and add Module Dependency and select kotlin
+// While building it will also pull kotlin module
+// 10. See you can call printParam("${your name}")
+// 11. Try to call CompanyCommunication.getCopyrightLine object from that file
+// 12. Try to call Department.IT from this file (only import this)
+// 13. Import all of the enum (hint: using *)
+// 14. import CompanyCommunication as Comm
+// 15. Try to import and call String extension function under the Extensions file.
+
+
+
 
 
