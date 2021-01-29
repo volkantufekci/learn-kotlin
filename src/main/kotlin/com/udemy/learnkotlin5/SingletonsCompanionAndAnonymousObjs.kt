@@ -4,6 +4,8 @@ import com.udemy.examples.Dealer
 import java.time.Year
 
 
+// TODO: lessons learntı slıde lara koymak guzel olur
+
 // object keyword usages:
 
 // Singletons - only 1 instance of a class
@@ -74,11 +76,13 @@ class CompanionObjectClass{
 // 2.make CompanionObjectClass primary constructor private
 // 3.add a justAssign(param: String): CompanionObjectClass fun to the companion object of
 // the CompanionObjectClass and assign the property to the param
-// 4. add a upperOrLowerCase(param: String, lowerCase: Boolean): CompanionObjectClass fun to the companion object
+// 4. add a upperOrLowerCase(param: String, lowerCase: Boolean): String fun to the companion object
 // you can use .toLowerCase() and toUpperCase() methods while implementing
 // 5. create first instance of the CompanionObjectClass calling justAssign() fun with some value
 // 6. create second instance of the CompanionObjectClass calling upperOrLowerCase() fun with some value and false option
 // Lessons learned: We can use companion objects to create instances of classes as if it is a factory class
+
+
 
 
 //Anonymous Objects
@@ -91,6 +95,15 @@ class CompanionObjectClass{
 // 6. increment thisIsMutable in the anonymous obj fun
 // 7. print thisIsMutable
 // Lessons learned: If we want to call an object fun only once and destroy it after calling we can use anonymous obj
+
+interface Walkable {
+
+    fun mustImplement(num: Int) : String
+
+    fun wantsSomeInterface(si : SomeInterface)
+}
+interface SomeInterface
+
 
 
 //Enums
