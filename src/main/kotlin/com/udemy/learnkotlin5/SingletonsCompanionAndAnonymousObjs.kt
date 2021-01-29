@@ -33,17 +33,34 @@ fun main() {
 
     println(CompanionObjectClass.accessPrivateVar())
     println(CompanionObjectClass.createdObjects)
-    val obj1 = CompanionObjectClass()
+    val obj1 = CompanionObjectClass.justAssign("")
     println("this time: "+CompanionObjectClass.createdObjects)
 
-    var obj2 = CompanionObjectClass()
+    var obj2 = CompanionObjectClass.justAssign("")
     println("this time: "+CompanionObjectClass.createdObjects)
 
-    obj2 = CompanionObjectClass()
+    obj2 = CompanionObjectClass.justAssign("")
     println("this time: "+CompanionObjectClass.createdObjects)
     println(CompanionObjectClass.accessPrivateVar())
 
 
+    val obj3: CompanionObjectClass = CompanionObjectClass.justAssign("Hello World")
+    val obj4 = CompanionObjectClass.upperOrLowerCase("Hello World", false)
+
+    val complexConstructor = MyClass(25.0)
+    val complexConstructor2 = MyClass(obj3)
+
+    val runnableObj = object: Walkable {
+        override fun mustImplement(num: Int): String {
+            return ""
+        }
+
+        override fun wantsSomeInterface(si: SomeInterface) {
+        }
+    }
+
+    println("*******")
+    println(runnableObj.wantsSomeInterface(object: SomeInterface { }))
 
 }
 
@@ -58,7 +75,7 @@ fun main() {
 // 7. Delete name and try to reach accessPrivateVar() fun without using Companion keyword
 // Lessons learned - anything in the companion objects mean that we can reach them without creating an instance of a class
 
-class CompanionObjectClass{
+class CompanionObjectClass private constructor(var str: String){
     init {
         createdObjects++
     }
@@ -67,7 +84,19 @@ class CompanionObjectClass{
         internal var createdObjects = 0
         private val year: Int = -1
         fun accessPrivateVar() = "$year"
+        fun justAssign(param: String) = CompanionObjectClass(param)
+        fun upperOrLowerCase(param: String, lowerCase: Boolean): String = if(lowerCase) param.toLowerCase() else param.toUpperCase()
+
     }
+}
+
+
+class MyClass{
+
+    constructor(x: Double)
+    constructor(x: CompanionObjectClass)
+
+
 }
 
 
