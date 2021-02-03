@@ -4,6 +4,8 @@ import com.udemy.examples.Dealer
 import java.time.Year
 
 
+// TODO: lessons learntı slıde lara koymak guzel olur
+
 // object keyword usages:
 
 // Singletons - only 1 instance of a class
@@ -31,17 +33,34 @@ fun main() {
 
     println(CompanionObjectClass.accessPrivateVar())
     println(CompanionObjectClass.createdObjects)
-    val obj1 = CompanionObjectClass()
+    val obj1 = CompanionObjectClass.justAssign("")
     println("this time: "+CompanionObjectClass.createdObjects)
 
-    var obj2 = CompanionObjectClass()
+    var obj2 = CompanionObjectClass.justAssign("")
     println("this time: "+CompanionObjectClass.createdObjects)
 
-    obj2 = CompanionObjectClass()
+    obj2 = CompanionObjectClass.justAssign("")
     println("this time: "+CompanionObjectClass.createdObjects)
     println(CompanionObjectClass.accessPrivateVar())
 
 
+    val obj3: CompanionObjectClass = CompanionObjectClass.justAssign("Hello World")
+    val obj4 = CompanionObjectClass.upperOrLowerCase("Hello World", false)
+
+    val complexConstructor = MyClass(25.0)
+    val complexConstructor2 = MyClass(obj3)
+
+    val runnableObj = object: Walkable {
+        override fun mustImplement(num: Int): String {
+            return ""
+        }
+
+        override fun wantsSomeInterface(si: SomeInterface) {
+        }
+    }
+
+    println("*******")
+    println(runnableObj.wantsSomeInterface(object: SomeInterface { }))
 
 }
 
@@ -56,7 +75,7 @@ fun main() {
 // 7. Delete name and try to reach accessPrivateVar() fun without using Companion keyword
 // Lessons learned - anything in the companion objects mean that we can reach them without creating an instance of a class
 
-class CompanionObjectClass{
+class CompanionObjectClass private constructor(var str: String){
     init {
         createdObjects++
     }
@@ -65,7 +84,19 @@ class CompanionObjectClass{
         internal var createdObjects = 0
         private val year: Int = -1
         fun accessPrivateVar() = "$year"
+        fun justAssign(param: String) = CompanionObjectClass(param)
+        fun upperOrLowerCase(param: String, lowerCase: Boolean): String = if(lowerCase) param.toLowerCase() else param.toUpperCase()
+
     }
+}
+
+
+class MyClass{
+
+    constructor(x: Double)
+    constructor(x: CompanionObjectClass)
+
+
 }
 
 
@@ -74,11 +105,13 @@ class CompanionObjectClass{
 // 2.make CompanionObjectClass primary constructor private
 // 3.add a justAssign(param: String): CompanionObjectClass fun to the companion object of
 // the CompanionObjectClass and assign the property to the param
-// 4. add a upperOrLowerCase(param: String, lowerCase: Boolean): CompanionObjectClass fun to the companion object
+// 4. add a upperOrLowerCase(param: String, lowerCase: Boolean): String fun to the companion object
 // you can use .toLowerCase() and toUpperCase() methods while implementing
 // 5. create first instance of the CompanionObjectClass calling justAssign() fun with some value
 // 6. create second instance of the CompanionObjectClass calling upperOrLowerCase() fun with some value and false option
 // Lessons learned: We can use companion objects to create instances of classes as if it is a factory class
+
+
 
 
 //Anonymous Objects
@@ -92,6 +125,15 @@ class CompanionObjectClass{
 // 7. print thisIsMutable
 // Lessons learned: If we want to call an object fun only once and destroy it after calling we can use anonymous obj
 
+interface Walkable {
+
+    fun mustImplement(num: Int) : String
+
+    fun wantsSomeInterface(si : SomeInterface)
+}
+interface SomeInterface
+
+
 
 //Enums
 // 1. Create an enum class named Department
@@ -101,6 +143,27 @@ class CompanionObjectClass{
 // 5. Add a fun getDepartmentInfo() = "The $fullName department has $numEmployees employee"
 // 6. print Department.ACCOUNTING.getDeptInfo()
 // Lessons learned: if you will add a fun in the enum class you need to put ; after the last enum value
+
+
+//Imports in Kotlin
+// 1. Create a new package named anotherpackage
+// 2. Create a new kt file under this package named AnotherFile
+// 2. Create a top level function in this file named printParam(str: String) = ...
+// 3. Call printParam("${your name}") from the AnotherFile
+// 4. Create a new module AnotherModule
+// 5. Create a package under this module
+// 6. Create a new file
+// 7. Try to call printParam("${your name}") from this file
+// 8. Rigth click to the new module and select Open Module Settings
+// 9. Select AnotherModule and add Module Dependency and select kotlin
+// While building it will also pull kotlin module
+// 10. See you can call printParam("${your name}")
+// 11. Try to call CompanyCommunication.getCopyrightLine object from that file
+// 12. Try to call Department.IT from this file (only import this)
+// 13. Import all of the enum (hint: using *)
+// 14. import CompanyCommunication as Comm
+// 15. Try to import and call String extension function under the Extensions file.
+
 
 
 
